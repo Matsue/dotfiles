@@ -122,7 +122,7 @@
 ;;
 ;; ruby-end
 ;;
-(require 'ruby-end)
+;;(require 'ruby-end)
 
 ;;
 ;; JS
@@ -187,3 +187,9 @@
 ;;
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+
+;;
+;; slim-mode
+;;
+(require 'slim-mode)
+(add-to-list 'auto-mode-alist '("\\.slim$" . slim-mode))
