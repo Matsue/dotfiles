@@ -59,6 +59,10 @@ colors
  
 # emacs 風キーバインドにする
 bindkey -e
+
+# Enable backward-kill-word
+bindkey "^[^H" run-help
+bindkey "^[h" backward-kill-word
  
 # ヒストリの設定
 HISTFILE=~/.zsh_history
