@@ -193,3 +193,16 @@
 ;;
 (require 'slim-mode)
 (add-to-list 'auto-mode-alist '("\\.slim$" . slim-mode))
+
+;;
+;; php-mode
+;;
+(require 'php-mode)
+(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
+(setq php-mode-force-pear t)
+(add-hook 'php-mode-hook
+          '(lambda () 
+             (setq tab-width 2) 
+             (setq c-basic-offset 2)
+             (setq indent-tabs-mode t)) 
+          )
