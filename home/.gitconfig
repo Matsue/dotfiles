@@ -2,6 +2,6 @@
 	name = Hiroki Matsue
 	email = hiroki.matsue@gmail.com
 [core]
-	excludesfile = /Users/waytoa/.global_ignore
+	excludesfile = ~/.global_ignore
 [alias]
 	fetch-pulls = fetch origin +refs/pull/*:refs/remotes/pull/*
