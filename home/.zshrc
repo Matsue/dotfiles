@@ -18,11 +18,16 @@ export MANPATH=/opt/local/man:$MANPATH
 
 # To use brew libraries first
 export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
 
 # rbenv
 export PATH=$HOME/.rbenv/bin:$PATH
 export PATH=$HOME/.rbenv/shims:$PATH # for tmux
 eval "$(rbenv init -)"
+
+# less
+export LESS='-R'
+export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh  %s'
  
 ########################################
 # alias

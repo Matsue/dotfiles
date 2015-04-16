@@ -1,3 +1,4 @@
+(fset 'package-desc-vers 'package--ac-desc-version)
 (setq load-path(cons"~/.emacs.d/src" load-path))
 
 ;; load $PATH to emacs
@@ -12,6 +13,11 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
+
+;;
+;; alias
+;;
+(global-set-key "\C-c\C-c" 'comment-or-uncomment-region)
 
 ;;
 ;; helm
