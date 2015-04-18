@@ -3,7 +3,7 @@
 
 ;; load $PATH to emacs
 (when (memq window-system '(mac ns))
-  (let ((envs '("PATH")))
+  (let ((envs '("PATH" "RBENV_ROOT")))
     (exec-path-from-shell-copy-envs envs))
 )
 
@@ -126,8 +126,20 @@
 (global-set-key "\C-cd" 'dash-at-point)
 
 ;;
-;; ruby-end
+;; Ruby
 ;;
+;; rbenv
+(require 'rbenv)
+(global-rbenv-mode)
+
+;; smart-compile
+(require 'smart-compile)
+(add-hook 'ruby-mode-hook
+	  '(lambda ()
+	     (define-key ruby-mode-map (kbd "C-c c") 'smart-compile)
+	     (define-key ruby-mode-map (kbd "C-c C-c") (kbd "C-c c C-m"))))
+
+;; ruby-end
 ;;(require 'ruby-end)
 
 ;;
