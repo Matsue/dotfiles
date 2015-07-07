@@ -19,6 +19,21 @@
 ;;
 (global-set-key "\C-c\C-c" 'comment-or-uncomment-region)
 
+(global-set-key [f12] 'next-error)
+(global-set-key (kbd "ESC <f12>") 'previous-error)
+(global-set-key [\C-f12] 'next-error)
+(global-set-key [\M-f12] 'previous-error)
+
+;;
+;; windows and revive
+;;
+;; (defvar win:switch-prefix "\C-z")
+(require 'windows)
+(setq win:use-frame nil)
+(win:startup-with-window)
+(define-key ctl-x-map "C" 'see-you-again)
+(define-key global-map "\C-c\C-r" 'resume-windows)
+
 ;;
 ;; helm
 ;;
