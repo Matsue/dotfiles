@@ -4,6 +4,21 @@ ZSH_THEME="matsue"
 plugins=(git rbenv)
 source $ZSH/oh-my-zsh.sh
 
+# Java
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+
+# gcloud
+source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+
+# node
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+alias npm-exec='PATH=node_modules/.bin:$PATH'
+
+# go
+export GOPATH=~/work/golang
+export PATH=$PATH:$GOPATH/bin
+
 ########################################
 # ref: https://gist.github.com/mollifier/4979906
 # 環境変数
@@ -24,6 +39,10 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=$HOME/.rbenv/bin:$PATH
 export PATH=$HOME/.rbenv/shims:$PATH # for tmux
 eval "$(rbenv init -)"
+
+# pyenv
+#export PYENV_ROOT=/usr/local/var/pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # less
 export LESS='-R'
@@ -49,6 +68,8 @@ alias mkdir='mkdir -p'
  
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
+
+alias bex='bundle exec'
  
 # グローバルエイリアス
 alias -g L='| less'
