@@ -4,12 +4,16 @@ ZSH_THEME="matsue"
 plugins=(git rbenv)
 source $ZSH/oh-my-zsh.sh
 
+# AWS
+export AWS_ACCESS_KEY_ID=$(aws --profile default configure get aws_access_key_id)
+export AWS_SECRET_ACCESS_KEY=$(aws --profile default configure get aws_secret_access_key)
+
 # Java
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+# export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 
 # gcloud
-source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
-source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+#source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+#source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 
 # node
 export PATH=$HOME/.nodebrew/current/bin:$PATH
@@ -65,6 +69,8 @@ alias cp='cp -i'
 alias mv='mv -i'
  
 alias mkdir='mkdir -p'
+
+alias dc='docker-compose'
  
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
