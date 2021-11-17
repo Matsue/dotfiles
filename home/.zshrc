@@ -1,15 +1,11 @@
-# oh-my-zsh configurations
-ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="matsue"
-plugins=(git rbenv)
-source $ZSH/oh-my-zsh.sh
-
-# AWS
-export AWS_ACCESS_KEY_ID=$(aws --profile default configure get aws_access_key_id)
-export AWS_SECRET_ACCESS_KEY=$(aws --profile default configure get aws_secret_access_key)
+# Flutter
+export PATH=$PATH:~/work/flutter/flutter/bin
 
 # Java
 # export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+
+# Android
+export PATH=$PATH:~/Library/Android/sdk/tools/bin
 
 # gcloud
 #source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
@@ -38,11 +34,6 @@ export MANPATH=/opt/local/man:$MANPATH
 # To use brew libraries first
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
-
-# rbenv
-export PATH=$HOME/.rbenv/bin:$PATH
-export PATH=$HOME/.rbenv/shims:$PATH # for tmux
-eval "$(rbenv init -)"
 
 # pyenv
 #export PYENV_ROOT=/usr/local/var/pyenv
