@@ -131,15 +131,28 @@ zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 ########################################
 # vcs_info
  
+# https://medium.com/pareture/simplest-zsh-prompt-configs-for-git-branch-name-3d01602a6f33
+# Enabling and setting git info var to be used in prompt config.
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' formats '(%s)-[%b]'
-zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
-precmd () {
-    psvar=()
-    LANG=en_US.UTF-8 vcs_info
-    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+zstyle ':vcs_info:*' enable git svn
+# This line obtains information from the vcs.
+zstyle ':vcs_info:git*' formats "- (%b) "
+precmd() {
+    vcs_info
 }
-RPROMPT="%1(v|%F{green}%1v%f|)"
+
+# Enable substitution in the prompt.
+setopt prompt_subst
+
+function parse_git_dirty {
+  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working tree clean" ]] && echo "*"
+}
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)] /"
+}
+
+# Config for the prompt. PS1 synonym.
+prompt='%F{green}%2/ $(parse_git_branch)>%f '
  
  
 ########################################
