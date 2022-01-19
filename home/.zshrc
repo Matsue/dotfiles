@@ -8,8 +8,8 @@ export PATH=$PATH:~/work/flutter/flutter/bin
 export PATH=$PATH:~/Library/Android/sdk/tools/bin
 
 # gcloud
-#source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
-#source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
 # node
 export PATH=$HOME/.nodebrew/current/bin:$PATH
